@@ -1,0 +1,143 @@
+<div ngClass="main">
+    <div ngClass="side-bar">
+        <div ngClass="side-bar-start">
+            <hr style="width: 0; margin-top: 0;">
+            <div (click)="showChangeName()" ngClass="clickable basic-info">
+                <img [src]="'https://cdn.iconscout.com/icon/free/png-256/profile-2337176-1982537.png'" alt="profile img"
+                    height="50px" />
+                <span ngClass="text text-info">{{fname}}</span>
+            </div>
+            <hr>
+            <div ngClass="mail">
+                <span ngClass="text coolvetica-text">
+                    Email:
+                </span>
+                &nbsp;
+                <span ngClass="text ">{{mail
+                    }}</span>
+                <label (click)="showChangeMail()" ngClass="clickable" for="edit-image">
+                    &nbsp;
+                    <img name="'edit-image'"
+                        [src]="'https://icons.veryicon.com/png/o/miscellaneous/iconfonts/edit-422.png'" alt="edit mail"
+                        height="18px">
+                    edit
+                </label>
+            </div>
+            <!--<hr>
+             <div ngClass="change-pass">
+                <button (click)="showChangePassword()" ngClass="btn btn-outline-danger ">Change password</button>
+            </div> -->
+            <hr>
+            <div ngClass="books">
+                <span ngClass="text coolvetica-text">
+                    Amount of open Borrows:
+                </span>
+                &nbsp;
+                {{borrows.length}}
+                &nbsp;
+                &nbsp;
+                <span (click)="showSeeMore()" style="cursor:pointer; display: inline-block ;text-decoration:underline;">
+                    see more
+                </span>
+            </div>
+        </div>
+        <div class="side-bar-end">
+            <div (click)="showContactSupport()" ngClass="clickable support">
+                <img [src]="'https://cdn.iconscout.com/icon/free/png-256/customer-support-2666301-2213464.png'"
+                    height="20px" alt="support">
+                <span ngClass="text coolvetica-text" style="text-align: center;">&nbsp; Contact Support</span>
+            </div>
+            <div ngClass="clickable log-out">
+                <hr>
+                <span (click)="logOut()" ngClass="text coolvetica-text text-danger">Log out</span>
+            </div>
+        </div>
+    </div>
+    <div ngClass="screen">
+
+        <div *ngIf="showChangePass">
+            <div ngClass="pass-con">
+
+                <br>
+                <h2>Change password</h2>
+                <hr>
+                <br>
+
+                <div ngClass="textbox-container">
+                    <label for="oldpass">old password</label>
+                    <input #oldpass type="password" name="oldpass">
+                    <span *ngIf="showIncorrectOldPass" ngClass="text text-danger cant-sign-label">Password was
+                        incorrect</span>
+                </div>
+                <div ngClass="textbox-container">
+                    <label for="newpass1">new password</label>
+                    <input #newpass1 type="password" name="newpass1">
+                </div>
+                <div ngClass="textbox-container">
+                    <label for="newpass2">repeat password</label>
+                    <input #newpass2 type="password" name="newpass2">
+                    <span *ngIf="showPassNotTheSame" ngClass="text text-danger cant-sign-label">Passwords don't
+                        match</span>
+                </div>
+                <br>
+                <button ngClass="btn btn-outline-danger"
+                    (click)="changePassword(oldpass.value,newpass1.value,newpass2.value)">Change</button>
+            </div>
+        </div>
+
+        <div *ngIf="showEditMail">
+
+            <div ngClass="pass-con coolvetica-text">
+
+                <h2>
+                    <h6>current mail:</h6>{{mail}}
+                </h2>
+                <hr>
+                <div ngClass="textbox-container">
+                    <label for="newmail">new mail</label>
+                    <input #newmail type="email" name="email">
+                    <span *ngIf="showInvalidMail" ngClass="text text-danger cant-sign-label">This is not a valid
+                        mail</span>
+                </div>
+                <br>
+                <button ngClass="btn btn-outline-danger" (click)="changeMail(newmail.value)">Change</button>
+            </div>
+        </div>
+
+        <div *ngIf="showEditName">
+
+            <div ngClass="pass-con coolvetica-text">
+                <br>
+                <div ngClass="textbox-container">
+                    <label for="firstname">name</label>
+                    <input #firstname type="text" name="fname" placeholder="{{fname}}">
+                    <span *ngIf="showInvalidName" ngClass="text text-danger cant-sign-label">{{invalidNameText}}</span>
+                </div>
+                <br>
+                <button ngClass="btn btn-outline-danger" (click)="changeName(firstname.value)">Change</button>
+            </div>
+        </div>
+
+        <div *ngIf="showBorrowsPage">
+            <div style="padding: 5px;" *ngFor="let borrow of borrows">
+                <div ngClass="card">
+                    <div ngClass="card-body">
+                        <br>
+                        <span ngClass="coolvetica-text">Borrow date: &nbsp;</span>{{getDate(borrow.borrowedDate)}}
+
+                        <div ngClass="book-window">
+                            <span ngClass="titles">
+                                <h4>{{borrow.book?.title}}</h4>
+                                <h5>by: {{borrow.book?.author}}</h5>
+                            </span>
+                            <img [src]="borrow.book?.imgSrc" alt="{{borrow.book?.title}}" width="100px">
+                            <div ngClass="btn-container">
+                                <button (click)="returnBook(borrow.id,returnButton,borrow.book?.title)" #returnButton ngClass="btn btn-outline-success">Return</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

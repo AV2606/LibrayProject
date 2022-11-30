@@ -1,0 +1,68 @@
+.login {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+}
+
+.wrapper {
+	grid-column: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-op-container {
+	position: relative;
+	display: flex;
+}
+
+.login-op {
+	margin: 0 10px 0 10px;
+	cursor: pointer;
+	font-family: 'coolvetica';
+	color:var(--fill_empty)
+}
+
+.login-op>hr {
+	display: none;
+}
+
+.active-sign>hr {
+	display: block;
+	background: blue;
+}
+
+.active-sign{
+	color: var(--blue);
+}
+
+.sign-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transition: 2s ease-out;
+}
+
+.sign-div-active {
+	transform: rotateX(0deg);
+}
+
+.cant-sign-label{
+	background: #ee110033;
+	border-radius: 2px;
+	width: 102%;
+	text-align: center;
+	align-self: center;
+}
+
+@keyframes deactive {
+	0% {}
+
+	99% {
+		transform: rotateX(90deg);
+	}
+
+	100% {
+		display: none;
+	}
+}

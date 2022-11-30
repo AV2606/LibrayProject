@@ -1,0 +1,16 @@
+<header id="nav-wrapper" ngClass="main-wrapper">
+    <nav id="nav">
+      <div class="nav left">
+        <span class="gradient skew"><h1 class="logo un-skew"><a href="#home">Public Library</a></h1></span>
+        <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+      </div>
+      <div class="nav right">
+        <a *ngIf="showAdmin" [routerLink]="'admin'"  #adminbtn (click)="btnClick(adminbtn)" ngClass="nav-link"><span class="nav-link-span"><span class="u-nav">Admin</span></span></a>
+        <a [routerLink]="'home'"  #homebtn (click)="btnClick(homebtn)" ngClass="nav-link"><span class="nav-link-span"><span class="u-nav">Home</span></span></a>
+        <a [routerLink]="'about'" #aboutbtn (click)="btnClick(aboutbtn)" ngClass="nav-link"><span class="nav-link-span"><span class="u-nav">About</span></span></a>
+        <a [routerLink]="'profile'" #profilebtn (click)="btnClick(profilebtn)" ngClass="nav-link"><span class="nav-link-span"><span class="u-nav">Profile</span></span></a>
+        &nbsp;
+        <!-- <a  #contactbtn (click)="btnClick(contactbtn)" ngClass="nav-link"><span class="nav-link-span"><span class="u-nav">Contact</span></span></a> -->
+      </div>
+    </nav>
+  </header>

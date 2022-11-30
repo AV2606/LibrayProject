@@ -1,0 +1,30 @@
+.oops {
+    position: absolute;
+    font-family: 'funky';
+    font-size: 50px;
+    transform: rotateZ(30deg);
+    bottom: 200px;
+    background-color:#ddddcc20;
+    border-radius: 40px;
+}
+
+.bigger {
+    font-size: 40px;
+    margin-top: 40px;
+    /* transform: rotate(90deg); */
+}
+
+.main {
+    position: relative;
+    height: 100%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.2976540958180147) 0%,
+            rgba(69, 222, 255, 0.5014245014245013) 73%,
+            rgba(0, 133, 255, 0.7934472934472935) 100%);
+}
+
+.info{
+    position: absolute;
+    bottom: 0px;
+    font-family: 'coolvetica';
+}

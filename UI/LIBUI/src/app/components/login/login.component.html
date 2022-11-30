@@ -1,0 +1,43 @@
+<div ngClass="scrollable scrolled login">
+    <div ngClass="wrapper">
+        <div ngClass="login-op-container">
+            <h1 #sin (click)="signClick(sin,sup,sinDiv,supDiv)" ngClass="login-op sign-in active-sign">Sign in
+                <hr>
+            </h1>
+            <h1 #sup (click)="signClick(sup,sin,supDiv,sinDiv)" ngClass="login-op sign-up">Sign up
+                <hr>
+            </h1>
+        </div>
+
+        <div #sinDiv ngClass="sign-div sign-in-div">
+            <input #userNameInput ngClass="form-control" type="text" placeholder="user name" />
+            <br>
+            <input #passwordInput ngClass="form-control" type="password" placeholder="password" />
+            <label for="cb">
+                <br>
+                <input id="cb" type="checkbox" (change)="rememberMe = !rememberMe" [checked]="rememberMe"
+                    name="Remember me">
+                Remember me
+            </label>
+            <br>
+            <label ngClass="cant-sign-label hidden text text-danger" >user name or password are incorrect</label>
+            <button ngClass="btn btn-info   " (click)="signIn(userNameInput.value,passwordInput.value)">Sign in</button>
+        </div>
+        <div #supDiv ngClass="sign-div sign-up-div hidden">
+            <input #userNameUp ngClass="form-control" type="text" placeholder="user name" />
+            <span *ngIf="showUsedUsername" ngClass="text text-danger cant-sign-label">this user name is in use already</span>
+            <br>
+            <input #emailInput ngClass="form-control" type="email" placeholder="mail@exapmple.com" >
+            <span *ngIf="showInvalidMail" ngClass="text text-danger cant-sign-label">Invalid email</span>
+            <span *ngIf="showTakenMail" ngClass="text text-danger cant-sign-label">Email is taken</span>
+            <br>
+            <input #passwordUp ngClass="form-control" type="password" placeholder="password" />
+            <br>
+            <input #passwordRepeat ngClass="form-control" type="password" placeholder="repeat password" />
+            <span *ngIf="showMismatchPass" ngClass="text text-danger cant-sign-label">passwords does not match</span>
+            <span *ngIf="showInvalidPassword" ngClass="text text-danger cant-sign-label">password must be at least 6 characters long and contain upper-case, lower-case, number and alpha-numeric</span>
+            <br>
+            <button ngClass="btn btn-outline-info" (click)="signUp(userNameUp.value,emailInput.value,passwordUp.value,passwordRepeat.value)">Sign up</button>
+        </div>
+    </div>
+</div>

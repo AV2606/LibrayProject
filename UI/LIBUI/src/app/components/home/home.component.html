@@ -1,0 +1,49 @@
+<div #popup id="popup" ngClass="popup-container hidden">
+    <div ngClass="popup">
+        <div ngClass="header">
+            <img ngClass="clickable" [src]="'https://cdn0.iconfinder.com/data/icons/octicons/1024/x-512.png'" alt="x"
+                (click)="closeInfoPopUp(popup)" height="17px">
+        </div>
+        <h3>Book: <span ngClass="popup-title coolvetica-text">{{bookToShow?.title}}</span></h3>
+        <hr style="width: 90%;">
+        <h4 ngClass="summary">Summary:</h4>
+        <h5 ngClass="summary-text coolvetica-text">{{bookToShow?.summary}}</h5>
+        <button (click)="borrowBook(bookToShow?.id,bookToShow?.title)" ngClass="btn btn-outline-success popup-borrow-btn">Borrow</button>
+    </div>
+</div>
+
+
+<div ngClass="navbar">
+    <div>
+        <label for="serachbaar" ngClass="coolvetica-text">Search: &nbsp;</label>
+        <input (keyup)="searchKeyPress($event,searchbar)" #searchbar type="text" name="searchbar" ngClass="searchbar"
+            placeholder="e.x. peter pen"> &nbsp;
+        <img title="search" (click)="filterBooks(searchbar.value)" ngClass="clickable" height="18px"
+            [src]="'https://cdn-icons-png.flaticon.com/128/149/149852.png'" alt="search">&nbsp;
+        <img title="reset" (click)="resetBooks(searchbar)" [src]="'https://recipeswild.com/images/items/reset.png'"
+            ngClass="clickable" height="18px" alt="reset">
+    </div>
+</div>
+<div ngClass="books-container scrolled">
+    <div ngClass="coolvetica-text book-window" *ngFor="let b of filteredBooks">
+        <span ngClass="titles">
+            <h4>{{b.title}}</h4>
+            <h5>by: {{b.author}}</h5>
+        </span>
+        <img [src]="b.imgSrc" alt="{{b.title}}" height="100px">
+        <div ngClass="btn-container">
+            <button (click)="borrowBook(b.id,b.title)" ngClass="btn btn-outline-success">Borrow</button>
+            <button (click)="showBookInfo(b)" ngClass="btn btn-outline-info">Info</button>
+        </div>
+        <hr>
+    </div>
+    <div ngClass="coolvetica-text not-found-page" *ngIf="filteredBooks.length==0">
+        <hr>
+        <span>We found no books matching your search: &nbsp;
+            <strong style=" border-bottom: 1px solid navy ;">{{searchbar.value}}</strong>
+        </span>
+        <img src="https://friconix.com/png/fi-snsuxl-smiley-sad.png" alt="sad face" width="28px">
+    </div>
+    <br>
+    <br>
+</div>

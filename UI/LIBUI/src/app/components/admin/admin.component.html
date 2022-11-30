@@ -1,0 +1,54 @@
+<div ngClass="main">
+    <div ngClass="side-bar">
+        <button (click)="showAddBook()" ngClass="btn btn-outline-salmon">Add book</button>
+    </div>
+    <div ngClass="scrolled scrollable screen">
+        <br>
+        <div *ngIf="showAddBookPage">
+            <h2 class="title">new book</h2>
+            <hr>
+
+            <div ngClass="textbox-container">
+                <label for="title">title</label>
+                <input #title type="text" name="title" placeholder="e.x. The Wave">
+                <span *ngIf="showTitleError" ngClass="text text-danger cant-sign-label">You can add title its ok (its
+                    must)</span>
+            </div>
+
+            <br>
+
+            <div ngClass="textbox-container">
+                <label for="author">author</label>
+                <input #author type="text" name="author" placeholder="e.x. J.K. Roulling">
+                <span *ngIf="showAuthorError" ngClass="text text-danger cant-sign-label">Every book has an author</span>
+            </div>
+
+            <br>
+
+            <div ngClass="textbox-container">
+                <label for="pages">Page amount</label>
+                <input #pages type="number" name="author">
+                <span *ngIf="showPageAmountError" ngClass="text text-danger cant-sign-label">Valid range is:
+                    1-9,999</span>
+            </div>
+
+            <br>
+
+            <div ngClass="textbox-container">
+                <label for="summary">summary</label>
+                <input #summary type="text" name="summary" placeholder="82">
+                <span *ngIf="showSummaryError" ngClass="text text-danger cant-sign-label">at least one word, try
+                    better</span>
+            </div>
+
+            <br>
+
+            <div ngClass="textbox-container">
+                <label for="imgSrc">img source</label>
+                <input #imgSrc type="text" name="imgSrc" placeholder="e.x. https://www.w3schools.com/picture">
+            </div>
+            
+            <button (click)="addBook(title.value,author.value,pages.value,summary.value,imgSrc.value)" ngClass="btn btn-outline-success" style="width: 80%;">Add</button>
+        </div>
+    </div>
+</div>

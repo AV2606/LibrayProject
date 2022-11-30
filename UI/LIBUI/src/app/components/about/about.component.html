@@ -1,0 +1,78 @@
+<div ngClass="main">
+    <div ngClass="side-bar">
+        <button (click)="showLogin()" ngClass="btn btn-outline-info">Login ></button>
+        <hr>
+        <button (click)="showHome()" ngClass="btn btn-outline-info">Home ></button>
+        <hr>
+        <button (click)="showProfile()" ngClass="btn btn-outline-info">Profile ></button>
+        <hr>
+        <button (click)="showAdmin()" ngClass="btn btn-outline-info">Admin ></button>
+    </div>
+    <div ngClass="scrolled scrollable screen">
+        <div *ngIf="showLoginScreen">
+
+            <div style="font-size: 20px; text-align: center;">Login</div>
+            <hr>
+
+            <div ngClass="underline">Sign in:</div>
+            <br>
+            <img src="../../../assets/photos/signInPage.png" alt="sign in page example" width="100%">
+            <hr>
+            <div ngClass="underline">Sign up:</div>
+            <br>
+            <img src="../../../assets/photos/singUpPage.jpg" alt="sign in page example" width="100%">
+            <br>
+        </div>
+        <!--  -->
+        <div *ngIf="showHomeScreen">
+            <div style="font-size: 20px; text-align: center;">Home</div>
+            <hr>
+
+            <div ngClass="underline">home page:</div>
+            <br>
+            <img src="../../../assets/photos/homePage.png" alt="home page example" width="100%">
+            <hr>
+            <div ngClass="underline">filter example:</div>
+            <br>
+            <img src="../../../assets/photos/filterExample.png" alt="filter home page example" width="100%">
+            <hr>
+            <div ngClass="underline">info example:</div>
+            <br>
+            <img src="../../../assets/photos/expandHome.png" alt="expand home page example" width="100%">
+        </div>
+        <!--  -->
+        <div
+            *ngIf="showProfileScreen">
+            <div style="font-size: 20px; text-align: center;">Profile</div>
+            <hr>
+
+            <div ngClass="underline">profile page:</div>
+            <br>
+            <img src="../../../assets/photos/profilePage.png" alt="profile page" width="100%">
+            <hr>
+            <div ngClass="underline">email change example:</div>
+            <br>
+            <img src="../../../assets/photos/emailChangeExample.png" alt="change email example profile page example" width="100%">
+            <hr>
+            <div ngClass="underline">return borrow example:</div>
+            <br>
+            <img src="../../../assets/photos/returnBorrowExample.png" alt="borrow example profile page example" width="100%">
+            <hr>
+        </div>
+        <!--  -->
+        <div
+            *ngIf="showAdminScreen">
+            <div style="font-size: 20px; text-align: center;">Admin</div>
+            <hr>
+
+            <div ngClass="underline">admin page:</div>
+            <br>
+            <img src="../../../assets/photos/adminPage.png" alt="admin page" width="100%">
+            <hr>
+            <div ngClass="underline">add book example:</div>
+            <br>
+            <img src="../../../assets/photos/addBookExample.png" alt="add book admin page example" width="100%">
+            <hr>
+        </div>
+    </div>
+</div>
